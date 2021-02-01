@@ -1,10 +1,12 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('sqlite::memory:');
+const sequelize = new Sequelize({
+  dialect: "sqlite",
+  storage: "db/user_stat.sqlite"
+});
 
 const UserStat = sequelize.define('UserStat', {
-  id: {
+  user_id: {
     type: DataTypes.INTEGER,
-    primaryKey: true,
   },
   date: {
     type: DataTypes.DATE,
